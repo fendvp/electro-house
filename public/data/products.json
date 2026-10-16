@@ -1,9 +1,142 @@
 [
 {
+    "id": 0,
+    "nombre": "Aire Acondicionado Split Inverter Sansei Frio Calor 3225 Frigorias / 3750 W",
+    "categoria": "Climatizacion",
+    "precio": 749999,
+    "stock": 7
+},
+{
     "id": 1,
-    "nombre": "Camara Instantánea",
-    "precio": 85000,
-    "stock":22,
-    "imagen": "/images/CamaraInstantanea.webp"
+    "nombre": "Aire Portátil Smart Midea Mpxh-12-n81f 3010 Kcal/h Frío Calor",
+    "categoria": "Climatizacion",
+    "precio": 669999,
+    "stock": 23
+},
+{
+    "id": 2,
+    "nombre": "Aire Acondicionado Split Frio/Calor Philco PHS50HA4CN 4472 Frigorias / 5200 Watts",
+    "categoria": "Climatizacion",
+    "precio": 1013164,
+    "stock": 12
+},
+{
+    "id": 3,
+    "nombre": "Aire Acondicionado LG Split DualCool 5500 Frío/Calor Inverter WiFi Blanco - S4-W24K231E",
+    "categoria": "Climatizacion",
+    "precio": 1629999,
+    "stock": 3
+},
+{
+    "id": 4,
+    "nombre": "Aire Ventana Mvf12cfn81f 2881 Frig (frío Solo) Midea Color Blanco",
+    "categoria": "Climatizacion",
+    "precio": 761259,
+    "stock": 10
+},
+{
+    "id": 5,
+    "nombre": "Heladera Side by Side Smartlife No Frost Inverter 560L Negro",
+    "categoria": "Heladeras y Freezers",
+    "precio": 1399999,
+    "stock": 15
+},
+{
+    "id": 6,
+    "nombre": "Heladera Inverter Midea Blanca Top Mount 266 L",
+    "categoria": "Heladeras y Freezers",
+    "precio": 799999,
+    "stock": 9
+},
+{
+    "id": 7,
+    "nombre": "Heladera frigobar Gafa HGFM90P color plateado con capacidad de 90L",
+    "categoria": "Heladeras y Freezers",
+    "precio": 402603,
+    "stock": 27
+},
+{
+    "id": 8,
+    "nombre": "Freezer Horizontal Bambi FH-4100BPA 360Lts Color Blanco",
+    "categoria": "Heladeras y Freezers",
+    "precio": 677882,
+    "stock": 8
+},
+{
+    "id": 9,
+    "nombre": "Microondas Gafa 20L Negro MG20AB 6 niveles de potencia",
+    "categoria": "Pequeños Cocina",
+    "precio": 177995,
+    "stock": 37
+},
+{
+    "id": 10,
+    "nombre": "Pava Eléctrica Daewoo Control De Temperatura WK5422W 1,7 Lts Color Blanco",
+    "categoria": "Pequeños Cocina",
+    "precio": 53999,
+    "stock": 76
+},
+{
+    "id": 11,
+    "nombre": "Cafetera Espresso Digital Unnic 20 Bares Con Espumador De Leche 9 Programas Preestablecidos Pantalla Táctil 1350W Semi Automática Color Negro Ideal Hogar Oficina Cocina",
+    "categoria": "Pequeños Cocina",
+    "precio": 186742,
+    "stock": 53
+},
+{
+    "id": 12,
+    "nombre": "Máquina de Coser MC202 Mini Recta con Luz Portátil",
+    "categoria": "Pequeños Hogar",
+    "precio": 24999,
+    "stock": 64
+},
+{
+    "id": 13,
+    "nombre": "Plancha Seca ATMA PAS1217PI",
+    "categoria": "Pequeños Hogar",
+    "precio": 34999,
+    "stock": 35
+},
+{
+    "id": 14,
+    "nombre": "Aspiradora Robot Gadnic Potente Succión Sensor Anti Caídas Filtro HEPA Lavable Depósito Extraíble",
+    "categoria": "Pequeños Hogar",
+    "precio": 166548,
+    "stock": 19
+},
+{
+    "id": 15,
+    "nombre": "Aspiradora Vertical Gadnic 2 en 1 de Mano 600W",
+    "categoria": "Pequeños Hogar",
+    "precio": 95498,
+    "stock": 7
+},
+{
+    "id": 16,
+    "nombre": "Plancha a Vapor Philips DST5010 2400 Watts Gris",
+    "categoria": "Pequeños Hogar",
+    "precio": 109999,
+    "stock": 27
+},
+{
+    "id": 17,
+    "nombre": "Cocina Escorial Candor S2 Gas Envasado 51 Cm",
+    "categoria": "Cocinas y Hornos",
+    "precio": 389999,
+    "stock": 12
+},
+{
+    "id": 18,
+    "nombre": "Cocina Philco PHCN50PNS Multigas Essential 50 Cm Plata",
+    "categoria": "Cocinas y Hornos",
+    "precio":499999 ,
+    "stock": 10
+},
+{
+    "id": 19,
+    "nombre": "Termotanque Electrico Escorial EL55L 55 LT",
+    "categoria": "Termotanque y calefones",
+    "precio": 299999,
+    "stock": 7
 }
 ]
