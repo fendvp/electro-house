@@ -13,8 +13,7 @@ function Header() {
   return (
     <header className="header">
       <nav className="navbar navbar-expand-lg">
-        <div className="container position-relative">
-          <Link
+        <div className="container-fluid px-2 px-md-3">          <Link
             to="/"
             className="navbar-brand header-logo fw-bold"
             onClick={cerrarMenu}

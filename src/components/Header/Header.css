@@ -1,6 +1,7 @@
 
 .header {
   background-color: var(--color-dark);
+  width: 100%;
   position: relative;
   z-index: 1020;
 }
@@ -58,6 +59,9 @@
 }
 
 .header-toggler .navbar-toggler-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
   filter: brightness(0) invert(1);
 }
 

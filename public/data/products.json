@@ -1,0 +1,9 @@
+[
+{
+    "id": 1,
+    "nombre": "Camara Instantánea",
+    "precio": 85000,
+    "stock":22,
+    "imagen": "/images/CamaraInstantanea.webp"
+}
+]
