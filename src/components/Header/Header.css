@@ -1,0 +1,83 @@
+
+.header {
+  background-color: var(--color-dark);
+  position: relative;
+  z-index: 1020;
+}
+
+.header-logo {
+  color: var(--color-background) !important;
+  font-size: 1.4rem;
+  transition: color 0.2s ease;
+}
+
+.header-logo:hover {
+  color: var(--color-secondary) !important;
+}
+
+.header-link {
+  color: var(--color-background);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.header-link:hover,
+.header-link:focus {
+  color: var(--color-accent);
+}
+
+.header-carrito {
+  display: flex;
+  align-items: center;
+  color: var(--color-background);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-carrito:hover {
+  color: var(--color-accent);
+}
+
+.carrito-cantidad {
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  font-size: 0.7rem;
+}
+
+.header-toggler {
+  width: 56px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: var(--color-secondary);
+  color: var(--color-background);
+}
+
+.header-toggler .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+.header-toggler:focus {
+  box-shadow: 0 0 0 0.15rem var(--color-secondary);
+}
+
+@media (max-width: 991.98px) {
+  .header .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1rem 1rem;
+    background-color: var(--color-dark);
+    border-top: 1px solid var(--color-primary);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .header-link {
+    padding: 0.75rem 0;
+  }
+}
