@@ -21,10 +21,9 @@ function Footer() {
 
   return (
     <footer className="footer mt-5">
-      <div className="container-fluid px-2 px-md-3 py-5 pb-2">
+      <div className="container px-2 px-md-3 px-lg-5 pt-5">
         <div className="row g-4">
 
-          {/* Información de la tienda */}
           <div className="col-12 col-md-4 footer-seccion">
             <h5 className="footer-titulo">Electro House</h5>
 
@@ -35,7 +34,6 @@ function Footer() {
             </p>
           </div>
 
-          {/* Navegación */}
           <div className="col-12 col-md-4 footer-seccion">
             <h5 className="footer-titulo">Tienda</h5>
 
@@ -47,7 +45,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Equipo */}
           <div className="col-12 col-md-4 footer-seccion">
             <h5 className="footer-titulo">Equipo</h5>
 
@@ -79,7 +76,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="footer-copyright text-center mt-3 pt-2">
           <p className="mb-0">
             © {new Date().getFullYear()} Electro House.
