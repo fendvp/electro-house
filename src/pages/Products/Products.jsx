@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ProductService } from "../../services/ProductService";
+import ProductList from "../../components/ProductList/ProductList";
 
 function Products() {
 
@@ -14,15 +15,14 @@ function Products() {
     .finally(() => setLoading(false))
   },[])
 
-  if(loading) return <p>Cargando productos...</p>
-  if(error) return <p>{error}</p>
+  if(loading) return <p className="text-center py-5">Cargando productos...</p>
+  if(error) return <p className="text-center py-5">{error}</p>
   
-  console.log(products)
 
   return (
-    <section>
-      <h1 className="mb-4">Nuestros productos</h1>
-      <p>Próximamente encontrarás nuestro catálogo.</p>
+    <section className="py-2">
+      <h1 className="mb-4 fw-bold">Nuestros productos</h1>
+      <ProductList products = {products}/>
     </section>
   );
 }
