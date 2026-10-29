@@ -9,29 +9,19 @@ function ProductDetail() {
 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [nombre, setNombre] = useState("")
-  const [categoria, setCategoria] = useState("")
-  const [stock, setStock] = useState(Number)
-  const [precio, setPrecio] =useState(Number)
+  const [product, setProduct] = useState()
+ 
 
   useEffect(()=>{
     ProductService()
-    .then((data)=>{
-      setNombre(data[id].nombre)
-      setCategoria(data[id].categoria)
-      setStock(data[id].stock)
-      setPrecio(data[id].precio)
-    })
+    .then((data)=> setProduct(data.find(prod => prod.id === Number(id))))
     .catch(() => setError("Error al cargar el producto"))
     .finally(() => setLoading(false))
-  },[])
-
-
-
-
+  },[id])
 
   if(loading) return <p className="text-center py-5">Cargando productos...</p>
   if(error) return <p className="text-center py-5">{error}</p>
+
 
 
   return (
@@ -41,15 +31,15 @@ function ProductDetail() {
       {/* Información principal */}
       <div className="product-detail-info">
         <h1 className="product-detail-title fw-bold mb-2">
-          {nombre}
+          {product.nombre}
         </h1>
 
         <p className="product-detail-category mb-3">
-          {categoria}
+          {product.categoria}
         </p>
 
         <p className="product-detail-price fw-bold mb-4 d-none d-lg-block">
-          $ {Number(precio).toLocaleString("es-AR")}
+          $ {Number(product.precio).toLocaleString("es-AR")}
         </p>
       </div>
 
@@ -58,7 +48,7 @@ function ProductDetail() {
         <div className="product-detail-image-container">
           <img
             src={`/images/products/${String(id).padStart(2, "0")}_main.webp`}
-            alt={nombre}
+            alt={product.nombre}
             className="product-detail-image"
           />
         </div>
@@ -68,12 +58,12 @@ function ProductDetail() {
       {/* Stock y acciones */}
       <div className="product-detail-actions-area">
         <p className="product-detail-price fw-bold mb-4 d-lg-none">
-          $ {Number(precio).toLocaleString("es-AR")}
+          $ {Number(product.precio).toLocaleString("es-AR")}
         </p>
         <div className="product-detail-actions">
           <p className="mb-3">
             Disponibilidad:{" "}
-            <span className="fw-semibold">{stock} unidades</span>
+            <span className="fw-semibold">{product.stock} unidades</span>
           </p>
 
           <div className="d-flex flex-wrap align-items-center gap-3">
@@ -82,16 +72,18 @@ function ProductDetail() {
                 type="button"
                 className="btn product-detail-counter-btn"
                 aria-label="Restar cantidad"
+
               >
                 −
               </button>
 
-              <span className="product-detail-counter-value">0</span>
+              <span className="product-detail-counter-value">1</span>
 
               <button
                 type="button"
                 className="btn product-detail-counter-btn"
                 aria-label="Sumar cantidad"
+
               >
                 +
               </button>
