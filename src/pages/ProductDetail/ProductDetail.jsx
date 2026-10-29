@@ -10,7 +10,7 @@ function ProductDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [product, setProduct] = useState()
- 
+  const [quantity, setQuantity] = useState(1)
 
   useEffect(()=>{
     ProductService()
@@ -22,7 +22,13 @@ function ProductDetail() {
   if(loading) return <p className="text-center py-5">Cargando productos...</p>
   if(error) return <p className="text-center py-5">{error}</p>
 
+  const decreaseQuantity = () =>{
+    if(quantity !== 1) setQuantity(quantity-1)
+  }
 
+  const increaseQuantity = () =>{
+    if(quantity !== product.stock) setQuantity(quantity+1)
+  }
 
   return (
   <section className="container product-detail my-4">
@@ -72,18 +78,18 @@ function ProductDetail() {
                 type="button"
                 className="btn product-detail-counter-btn"
                 aria-label="Restar cantidad"
-
+                onClick={decreaseQuantity}
               >
                 −
               </button>
 
-              <span className="product-detail-counter-value">1</span>
+              <span className="product-detail-counter-value">{quantity}</span>
 
               <button
                 type="button"
                 className="btn product-detail-counter-btn"
                 aria-label="Sumar cantidad"
-
+                onClick={increaseQuantity}
               >
                 +
               </button>
