@@ -35,75 +35,78 @@ function ProductDetail() {
 
 
   return (
-    <section className="container product-detail my-4">
-      <div className="row g-4 g-lg-5 align-items-center">
-        {/* Información: título y categoría */}
-        <div className="col-12 order-1 order-lg-2">
-          <h1 className="product-detail-title fw-bold mb-2">
-            {nombre}
-          </h1>
-          <p className="product-detail-category mb-0">
-            {categoria}
-          </p>
+  <section className="container product-detail my-4">
+    <div className="product-detail-layout">
+
+      {/* Información principal */}
+      <div className="product-detail-info">
+        <h1 className="product-detail-title fw-bold mb-2">
+          {nombre}
+        </h1>
+
+        <p className="product-detail-category mb-3">
+          {categoria}
+        </p>
+
+        <p className="product-detail-price fw-bold mb-4 d-none d-lg-block">
+          $ {Number(precio).toLocaleString("es-AR")}
+        </p>
+      </div>
+
+      {/* Imagen del producto */}
+      <div className="product-detail-image-area">
+        <div className="product-detail-image-container">
+          <img
+            src={`/images/products/${String(id).padStart(2, "0")}_main.webp`}
+            alt={nombre}
+            className="product-detail-image"
+          />
         </div>
 
-        {/* Imagen del producto */}
-        <div className="col-12 col-lg-6 order-2">
-          <div className="product-detail-image-container">
-            <img
-              src={`/images/products/${String(id).padStart(2, "0")}_main.webp`}
-              alt={nombre}
-              className="product-detail-image"
-            />
-          </div>
-          <p className="product-detail-price fw-bold mt-3 mb-0">
-            $ {Number(precio).toLocaleString("es-AR")}
+      </div>
+
+      {/* Stock y acciones */}
+      <div className="product-detail-actions-area">
+        <p className="product-detail-price fw-bold mb-4 d-lg-none">
+          $ {Number(precio).toLocaleString("es-AR")}
+        </p>
+        <div className="product-detail-actions">
+          <p className="mb-3">
+            Disponibilidad:{" "}
+            <span className="fw-semibold">{stock} unidades</span>
           </p>
-        </div>
 
+          <div className="d-flex flex-wrap align-items-center gap-3">
+            <div className="product-detail-counter d-flex align-items-center">
+              <button
+                type="button"
+                className="btn product-detail-counter-btn"
+                aria-label="Restar cantidad"
+              >
+                −
+              </button>
 
+              <span className="product-detail-counter-value">0</span>
 
-
-        {/* Stock y acciones */}
-        <div className="col-12 col-lg-6 order-3 order-lg-2">
-          <div className="product-detail-actions">
-            <p className="mb-3">
-              Disponibilidad:{" "}
-              <span className="fw-semibold">{stock} unidades</span>
-            </p>
-
-            <div className="d-flex flex-wrap align-items-center gap-3">
-              {/* Contador visual sin lógica */}
-              <div className="product-detail-counter d-flex align-items-center">
-                <button
-                  type="button"
-                  className="btn product-detail-counter-btn"
-                  aria-label="Restar cantidad"
-                >
-                  −
-                </button>
-
-                <span className="product-detail-counter-value">0</span>
-
-                <button
-                  type="button"
-                  className="btn product-detail-counter-btn"
-                  aria-label="Sumar cantidad"
-                >
-                  +
-                </button>
-              </div>
-
-              <button type="button" className="btn product-detail-add">
-                Agregar al carrito
+              <button
+                type="button"
+                className="btn product-detail-counter-btn"
+                aria-label="Sumar cantidad"
+              >
+                +
               </button>
             </div>
+
+            <button type="button" className="btn product-detail-add">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </div>
-    </section>
-  )
 
+    </div>
+  </section>
+  );
 }
 
 export default ProductDetail
