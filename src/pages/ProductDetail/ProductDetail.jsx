@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import "./ProductDetail.css"
 import { useEffect, useState } from "react";
 import { ProductService } from "../../services/ProductService";
+import { useCart } from "../../context/CartContext";
 
 function ProductDetail() {
 
@@ -19,6 +20,12 @@ function ProductDetail() {
     .finally(() => setLoading(false))
   },[id])
 
+  const {addToCart} = useCart();
+  
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+  }
+
   if(loading) return <p className="text-center py-5">Cargando productos...</p>
   if(error) return <p className="text-center py-5">{error}</p>
 
@@ -29,6 +36,8 @@ function ProductDetail() {
   const increaseQuantity = () =>{
     if(quantity !== product.stock) setQuantity(quantity+1)
   }
+
+
 
   return (
   <section className="container product-detail my-4">
@@ -95,8 +104,11 @@ function ProductDetail() {
               </button>
             </div>
 
-            <button type="button" className="btn product-detail-add">
-              Agregar al carrito
+            <button 
+              type="button" 
+              className="btn product-detail-add"
+              onClick={handleAddToCart}>
+                Agregar al carrito
             </button>
           </div>
         </div>

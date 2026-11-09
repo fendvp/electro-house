@@ -2,13 +2,21 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useCart } from "../../context/CartContext";
 
 function Header() {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
+  const {getCartQuantity} = useCart();
+  const totalItems = getCartQuantity()
+
+
   function cerrarMenu() {
     setMenuAbierto(false);
   }
+
+
+
 
   return (
     <header className="header">
@@ -83,7 +91,7 @@ function Header() {
               </svg>
 
               <span className="badge rounded-pill carrito-cantidad">
-                0
+                {totalItems}
               </span>
             </Link>
 

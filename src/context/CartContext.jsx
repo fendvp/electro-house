@@ -1,9 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const CartContext = createContext();
 
 export const useCart = () =>{
   const context = useContext(CartContext);
+  console.log(context)
   if (!context) {
     throw new Error('useCart debe ser usado dentro de un CartProvider')
   }
@@ -17,10 +18,9 @@ export function CartProvider({children}){
 
   const addToCart = (product, quantity) => {
     const itemInCart = cart.find(item => item.id === product.id);
-    // prueba
-    console.log(itemInCart)
 
-    if(itemInCard) {
+
+    if(itemInCart) {
       const updatedCart = cart.map(item =>
         item.id === product.id
           ? {...item, quantity: item.quantity + quantity}
@@ -37,11 +37,11 @@ export function CartProvider({children}){
   }
 
   const getCartQuantity = () =>{
-    return cart.reduce((acc,item) => acc + item.precio * item.quantity, 0)
+    return cart.reduce((acc,item) => acc + item.quantity, 0)
   }
 
   const getCartTotal = () =>{
-    return cart.reduce((acc, item) => acc + item.precio * item.quantity)
+    return cart.reduce((acc, item) => acc + item.precio * item.quantity,0)
   }
 
 
