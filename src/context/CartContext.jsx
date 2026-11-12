@@ -18,15 +18,22 @@ export function CartProvider({children}){
 
   const addToCart = (product, quantity) => {
     const itemInCart = cart.find(item => item.id === product.id);
-
-
     if(itemInCart) {
-      const updatedCart = cart.map(item =>
-        item.id === product.id
-          ? {...item, quantity: item.quantity + quantity}
-          : item
-      )
-      setCart(updatedCart)
+
+      if(itemInCart.quantity + quantity > itemInCart.stock){
+        alert("no hay suficiente stock")
+      } else{
+
+        const updatedCart = cart.map(item =>
+          item.id === product.id
+            ? {...item, quantity: item.quantity + quantity}
+            : item
+        )
+
+        setCart(updatedCart)
+        console.log(itemInCart)
+
+      }
     } else {
       setCart(prevCart => [...prevCart, {...product, quantity}])
     }
@@ -46,7 +53,15 @@ export function CartProvider({children}){
 
 
   return(
-    <CartContext.Provider value={{cart, addToCart, clearCart, getCartQuantity, getCartTotal}}>
+    <CartContext.Provider 
+      value={{
+        cart, 
+        addToCart,
+        clearCart, 
+        getCartQuantity, 
+        getCartTotal
+      }}
+    >
       {children}
     </CartContext.Provider>
   )
