@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import Modal from "../components/Modal/Modal";
 
 export const CartContext = createContext();
 
@@ -15,13 +16,14 @@ export const useCart = () =>{
 export function CartProvider({children}){
   
   const [cart, setCart] = useState([]);
+  const [showStockModal, setShowStockModal] = useState(false);
 
   const addToCart = (product, quantity) => {
     const itemInCart = cart.find(item => item.id === product.id);
     if(itemInCart) {
 
       if(itemInCart.quantity + quantity > itemInCart.stock){
-        alert("no hay suficiente stock")
+        setShowStockModal(true)
       } else{
 
         const updatedCart = cart.map(item =>
@@ -63,6 +65,13 @@ export function CartProvider({children}){
       }}
     >
       {children}
+      <Modal
+        show={showStockModal}
+        title="Stock insuficiente"
+        message="No hay suficiente stock disponible."
+        onClose={()=> setShowStockModal(false)}
+        closeText="Entendido"
+      />
     </CartContext.Provider>
   )
 }
