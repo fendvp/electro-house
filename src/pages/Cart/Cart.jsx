@@ -1,9 +1,26 @@
 
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import "./Cart.css";
+import Modal from "../../components/Modal/Modal";
+import { useState } from "react";
 
 function Cart() {
   const { cart, clearCart, getCartTotal } = useCart();
+  const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false)
+  const navigate = useNavigate();
+
+
+  const handleCheckout = () =>{
+    setIsCheckoutModalOpen(true);
+  }
+
+  const handleCloseChekout = () =>{
+    setIsCheckoutModalOpen(false);
+    clearCart();
+    navigate("/")
+  }
+
 
   if (cart.length === 0) {
     return (
@@ -16,6 +33,9 @@ function Cart() {
           <p className="mb-0">
             Agregá productos para continuar con tu compra.
           </p>
+          <Link to="/productos" className="btn btn-primary rounded-0 px-4 py-2 mt-3">
+            Elegir productos
+          </Link>
         </div>
       </section>
     );
@@ -85,6 +105,20 @@ function Cart() {
           >
             Vaciar carrito
           </button>
+          <button 
+            type="button"
+            className="btn btn-primary rounded-0 w-100 mt-3 px-4 py-2"
+            onClick={handleCheckout}
+          > 
+            Finalizar compra
+          </button>
+          <Modal
+            show={isCheckoutModalOpen}
+            title="Gracias por tu compra"
+            message="Tu pedido ha sido registrado correctamente. ¡Esperamos verte pronto!"
+            onClose={handleCloseChekout}
+            closeText="Volver"
+          ></Modal>
         </aside>
       </div>
     </section>
