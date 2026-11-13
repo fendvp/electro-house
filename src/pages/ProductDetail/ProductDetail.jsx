@@ -22,7 +22,6 @@ function ProductDetail() {
 
   const {addToCart} = useCart();
   
-
   const handleAddToCart = () => {
     addToCart(product, quantity);
   }
@@ -30,16 +29,12 @@ function ProductDetail() {
   if(loading) return <p className="text-center py-5">Cargando productos...</p>
   if(error) return <p className="text-center py-5">{error}</p>
 
-  // const cartItemQuantity = getCartItemQuantity(product.id);
-  // console.log(cartItemQuantity)
-
   const decreaseQuantity = () =>{
     if(quantity !== 1) setQuantity(quantity-1)
   }
 
   const increaseQuantity = () =>{
-    if(quantity !== product.stock ) setQuantity(quantity+1)
-    console.clear()
+    if(quantity !== product.stock) setQuantity(quantity+1)
   }
 
 
